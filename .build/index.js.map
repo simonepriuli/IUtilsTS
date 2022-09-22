@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../index.ts"],
-  "sourcesContent": ["import { IEnumerable } from './IEnumerable';\n\n//sample\n\nlet numbers = new IEnumerable;\n\nnumbers.Append(1);\nnumbers.Append(2);\nnumbers.Append(3);\n\nlet x = numbers.StringsToArray();\n\nx.forEach((value) => {\n  console.log(value);\n});"],
-  "mappings": ";;;;;;;;;;;;;;;;;;AAAA,yBAA4B;AAI5B,IAAI,UAAU,IAAI;AAElB,QAAQ,OAAO;AACf,QAAQ,OAAO;AACf,QAAQ,OAAO;AAEf,IAAI,IAAI,QAAQ;AAEhB,EAAE,QAAQ,CAAC,UAAU;AACnB,UAAQ,IAAI;AAAA;",
-  "names": []
-}

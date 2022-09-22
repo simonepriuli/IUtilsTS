@@ -3,10 +3,17 @@ export class IEnumerable {
   private Enumerables = new Map();
   private id: number = -1;
 
-  private function compareKeys(a: any, b: any) {
+  private compareKeys = (a: any, b: any) => {
     var aKeys = Object.keys(a).sort();
     var bKeys = Object.keys(b).sort();
     return JSON.stringify(aKeys) === JSON.stringify(bKeys);
+  }
+
+  private firstNumber = () => {
+    this.Enumerables.forEach((a) => {
+      if (typeof(a) == typeof(this.id)) {return a}
+      else {return 0}
+    });
   }
 
   //Aggiunge un oggetto any in coda
@@ -54,9 +61,10 @@ export class IEnumerable {
   }
 
   //Restituisce il massimo tra i numeri contenuti all'interno
-  Max(): number {
+  /* 
+  Max() {
     let sampleValue: number = 0;
-    let x: number = this.Enumerables.get(0);
+    let x: any = this.firstNumber();
 
     this.Enumerables.forEach((value) => {
       if (typeof (value) == typeof (sampleValue)) {
@@ -66,11 +74,13 @@ export class IEnumerable {
 
     return x;
   }
+  */
 
   //Restituisce il minimo tra i numeri contenuti all'interno
-  Min(): number {
+  /*
+  Min() {
     let sampleValue: number = 0;
-    let x: number = this.Enumerables.get(0);
+    let x: any = this.firstNumber();
 
     this.Enumerables.forEach((value) => {
       if (typeof (value) == typeof (sampleValue)) {
@@ -80,6 +90,7 @@ export class IEnumerable {
 
     return x;
   }
+  */
 
   //Restituisce il minimo tra i numeri contenuti all'interno
   Sum(): number {
@@ -165,12 +176,12 @@ export class IEnumerable {
   }
 
   //restiutisce il conteggio dei valori object all'interno dell'IEnumerable
-  ObjCount() {
-    let sampleObj: object = {};
+  ObjCount(sampleObj: any) {
+    
     let count: number = 0;
 
     this.Enumerables.forEach((value) => {
-      if (typeof (value) == typeof (sampleObj)) { count += 1 }
+      if (this.compareKeys(value, sampleObj)) { count += 1 }
     });
 
     return count;

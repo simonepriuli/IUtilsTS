@@ -1,26 +1,23 @@
 import { IEnumerable } from './IEnumerable';
 
-//IEnumerable deriva da C# 
-
 interface IUser {
-  username: string,
-  password: string
+  name: string,
+  age: number
 }
 
-const usr1: IUser = {username: 'simonepriuli', password: 'abc123'};
-const usr2: IUser = {username: 'jondoe', password: 'password!'};
-
-//array, map, obj, tuple
+const usr1: IUser = {name: 'simone', age: 22};
+const usr2: IUser = {name: 'john', age: 30};
 
 let Users = new IEnumerable;
 
 
 
+Users.Append(usr1);
+Users.Append(5);
+Users.Append(usr2);
+Users.Append(12);
+Users.Append('Hello World!');
+Users.Append({name: 'marco', age: 25});
+Users.Append(-4);
 
-const obj1 = {name: 'simone'};
-const obj2 = {names: 'giorgio'};
-
-Users.Append(obj1);
-Users.Append(obj2);
-
-console.log(Users.ObjToArray(obj1));
+console.log(Users.NumbersToArray());
