@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../index.ts"],
+  "sourcesContent": ["import { IEnumerable } from './IEnumerable';\n\ninterface IUser {\n  firstName: string,\n  lastName: string,\n  age: number,\n  username: string\n}\n\nlet Numbers = new IEnumerable;\n\nNumbers.Append(5);\nNumbers.Append(10);\nNumbers.Append('Albicocca');\n\nconsole.log(Numbers.Average());\n\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA,yBAA4B;AAS5B,IAAI,UAAU,IAAI;AAElB,QAAQ,OAAO;AACf,QAAQ,OAAO;AACf,QAAQ,OAAO;AAEf,QAAQ,IAAI,QAAQ;",
+  "names": []
+}
