@@ -17,9 +17,12 @@ var __toModule = (module2) => {
   return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
 };
 var import_IEnumerable = __toModule(require("./IEnumerable"));
-let Numbers = new import_IEnumerable.IEnumerable();
-Numbers.Append(5);
-Numbers.Append(10);
-Numbers.Append("Albicocca");
-console.log(Numbers.Average());
+let numbers = new import_IEnumerable.IEnumerable();
+numbers.Append(1);
+numbers.Append(2);
+numbers.Append(3);
+let x = numbers.StringsToArray();
+x.forEach((value) => {
+  console.log(value);
+});
 //# sourceMappingURL=index.js.map

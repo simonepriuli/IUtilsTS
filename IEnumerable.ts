@@ -47,6 +47,41 @@ export class IEnumerable {
     else {return 0}
   }
 
+  //restituisce un arry contenente tutti i number nell'IEnumerable
+  NumbersToArray() {
+    let sampleObj: number = 0;
+    let array: any[] = [];
+
+    this.Enumerables.forEach((value) => {
+      if (typeof(value) == typeof(sampleObj)) {array.push(value)}
+    });
+    
+    return array;
+  }
+
+  //restituisce un arry contenente tutti le string nell'IEnumerable
+  StringsToArray() {
+    let sampleObj: string = '';
+    let array: any[] = [];
+
+    this.Enumerables.forEach((value) => {
+      if (typeof(value) == typeof(sampleObj)) {array.push(value)}
+    });
+    
+    return array;
+  }
+
+  //restituisce un arry contenente tutti gli oggetti del tipo passato alla funzione nell'IEnumerable
+  ObjToArray(sampleObj: any) {
+    
+    let array: any[] = [];
+
+    this.Enumerables.forEach((value) => {
+      if (typeof(value) == typeof(sampleObj)) {array.push(value)}
+    });
+    
+    return array;
+  }
   
   
 }

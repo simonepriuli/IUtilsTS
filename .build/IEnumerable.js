@@ -28,7 +28,7 @@ class IEnumerable {
   GetEnumerator() {
     return this.Enumerables;
   }
-  Lenght() {
+  Size() {
     let x = 0;
     this.Enumerables.forEach(() => {
       x = x + 1;
@@ -50,6 +50,26 @@ class IEnumerable {
     } else {
       return 0;
     }
+  }
+  NumbersToArray() {
+    let sampleObj = 0;
+    let array = [];
+    this.Enumerables.forEach((value) => {
+      if (typeof value == typeof sampleObj) {
+        array.push(value);
+      }
+    });
+    return array;
+  }
+  StringsToArray() {
+    let sampleObj = "";
+    let array = [];
+    this.Enumerables.forEach((value) => {
+      if (typeof value == typeof sampleObj) {
+        array.push(value);
+      }
+    });
+    return array;
   }
 }
 // Annotate the CommonJS export names for ESM import in node:
