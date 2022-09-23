@@ -1,6 +1,6 @@
 # IEnumerable class for TypeScript
 
-IEnumerable class (inspired by C# LINQ IEnumerable) broght to TypeScript.
+IEnumerable utility class (inspired by C# LINQ IEnumerable) broght to TypeScript.
 
 ## Usage/Examples
 Copy IEnumerable.ts from the IEnumerableTS folder into your project and import it where you want to use it.
@@ -28,7 +28,6 @@ Users.Append(object);
 ```
 
 ## Methods
-
 - Any
 - Append
 - GetEnumerator
