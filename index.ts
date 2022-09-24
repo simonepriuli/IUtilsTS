@@ -7,9 +7,17 @@ Users.Append({ name: "mark", age: 28, city: "rome", sex: "m" });
 Users.Append({ name: "john", age: 31, city: "milan", sex: "m" });
 Users.Append({ name: "laura", age: 25, city: "milan", sex: "f" });
 
-const users: any = [];
+Users.GetEnumerator().forEach((value: any) => {
+    console.log(value);
+});
 
-users.push({ name: "simone", age: 30, city: "milan", sex: "m" });
-users.push({ name: "mark", age: 28, city: "rome", sex: "m" });
-users.push({ name: "john", age: 31, city: "milan", sex: "m" });
-users.push({ name: "laura", age: 25, city: "milan", sex: "f" });
+
+Users.Delete(' $age > 28 ');
+
+
+console.log();
+
+Users.GetEnumerator().forEach((value: any) => {
+    console.log(value);
+});
+

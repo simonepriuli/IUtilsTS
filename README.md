@@ -38,6 +38,10 @@ Users.Query(" @ > 30 && @ <= 50 ").forEach((value: any) => {
     console.log(value);
   });
 ```
+Delete method: delete items from the IEnumerable based on the query resul
+```typescript
+Users.Delete(' $age > 20 ');
+```
 
 
 ## Methods

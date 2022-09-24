@@ -1,4 +1,4 @@
-import { IQuery } from "./IQuery";
+import { IQuery, IQueryKey } from "./IQuery";
 
 export class IEnumerable {
   private Enumerables = new Map();
@@ -328,6 +328,20 @@ export class IEnumerable {
     });
 
     return IQuery(query, array);
-    
+  }
+
+  /**
+   * Delete objects inside the IEnumerable based on the query results.
+   * @param {string} string - the query
+   */
+  Delete(query: string) {
+    let array: any = [];
+
+    this.Enumerables.forEach((value) => {
+      array.push(value);
+    });
+    IQueryKey(query, array)?.forEach((value: number) => {
+      this.Enumerables.delete(value);
+    });
   }
 }
