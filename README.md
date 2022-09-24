@@ -29,11 +29,13 @@ Users.Append(object);
 ```
 Aggregate method: return an array based on a query on the IEnumerable
 ```typescript
+//query on object's parameters
 Users.Query(" $sex : m || $city : rome && $age >= 30 ").forEach((value: any) => {
     console.log(value);
   });
 ```
 ```typescript
+//query directly on objects
 Users.Query(" @ > 30 && @ <= 50 ").forEach((value: any) => {
     console.log(value);
   });
