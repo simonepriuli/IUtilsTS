@@ -1,5 +1,5 @@
 import { IEnumerable } from "./IUtilsTS/IEnumerable";
-
+import {} from './IUtilsTS/IQuery'
 const Users = new IEnumerable();
 
 Users.Append({ name: "simone", age: 30, city: "milan", sex: "m" });
@@ -12,12 +12,8 @@ Users.GetEnumerator().forEach((value: any) => {
 });
 
 
-Users.Delete(' $age > 28 ');
+const query: string = ' $age = 28 ';
 
+console.log(Users.Has(query));
 
-console.log();
-
-Users.GetEnumerator().forEach((value: any) => {
-    console.log(value);
-});
 

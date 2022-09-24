@@ -1,4 +1,4 @@
-import { IQuery, IQueryKey } from "./IQuery";
+import { IQuery, IQueryHas, IQueryKey } from "./IQuery";
 
 export class IEnumerable {
   private Enumerables = new Map();
@@ -344,4 +344,20 @@ export class IEnumerable {
       this.Enumerables.delete(value);
     });
   }
+
+  /**
+   * Check if the passed query produce any result, return true if so.
+   * @param {string} string - the query
+   * @return {Boolean} boolean
+   */
+  Has(query: string) {
+    let array: any = [];
+
+    this.Enumerables.forEach((value) => {
+      array.push(value);
+    });
+
+    return IQueryHas(query, array);
+  }
+
 }
