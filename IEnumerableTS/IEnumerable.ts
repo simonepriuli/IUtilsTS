@@ -316,7 +316,7 @@ export class IEnumerable {
   }
 
    /**
-   * Returns an array that based on the query aggregation results.
+   * Returns an array based on the query aggregation results.
    * @param {string} string - the query
    * @return {Array} Array.
    */
