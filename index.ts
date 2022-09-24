@@ -17,3 +17,4 @@ const query: string = ' $age = 28 ';
 console.log(Users.Has(query));
 
 
+console.log(Users.Size())

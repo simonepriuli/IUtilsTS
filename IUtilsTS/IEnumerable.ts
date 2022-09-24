@@ -87,11 +87,10 @@ export class IEnumerable {
    * @return {Number} Number.
    */
   Size(): number {
-    let x: number = 0;
-    this.Enumerables.forEach(() => {
-      x = x + 1;
-    });
-    return x;
+
+    let a: number = this.Enumerables.size;
+
+    return a;
   }
 
   /**
