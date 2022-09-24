@@ -1,3 +1,5 @@
+import { IAggregate } from "./IAggregate";
+
 export class IEnumerable {
   private Enumerables = new Map();
   private id: number = -1;
@@ -232,7 +234,7 @@ export class IEnumerable {
   }
 
   /**
-   * Returns the count of numbers inside IEnumerable.
+   * Returns the count of numbers inside the IEnumerable.
    * @return {Number} Number.
    */
 
@@ -250,7 +252,7 @@ export class IEnumerable {
   }
 
   /**
-   * Returns the count of strings inside IEnumerable.
+   * Returns the count of strings inside the IEnumerable.
    * @return {Number} Number.
    */
   StringCount() {
@@ -267,9 +269,9 @@ export class IEnumerable {
   }
 
   /**
-   * Returns the count of objects inside IEnumerable.
+   * Returns the count of objects inside the IEnumerable.
    * @param {any} Any - Specify the object type to count.
-   * @return {Number} Number.
+   * @return {number} Number.
    */
   ObjCount(sampleObj: any) {
     let count: number = 0;
@@ -283,6 +285,11 @@ export class IEnumerable {
     return count;
   }
 
+  /**
+   * Returns true if all numbers inside the IEnumerable are greater than the parameter.
+   * @param {number} number
+   * @return {boolean} boolean.
+   */
   GreaterThan(x: number): boolean {
     let check: boolean = true;
     this.Enumerables.forEach((a) => {
@@ -293,6 +300,11 @@ export class IEnumerable {
     return check;
   }
 
+  /**
+   * Returns true if all numbers inside the IEnumerable are lower than the parameter.
+   * @param {number} number
+   * @return {boolean} boolean.
+   */
   LowerThan(x: number): boolean {
     let check: boolean = true;
     this.Enumerables.forEach((a) => {
@@ -301,5 +313,21 @@ export class IEnumerable {
       }
     });
     return check;
+  }
+
+   /**
+   * Returns an array that based on the query aggregation results.
+   * @param {string} string - the query
+   * @return {Array} Array.
+   */
+  Aggregate(query: string) {
+    let array: any = [];
+
+    this.Enumerables.forEach((value) => {
+      array.push(value);
+    });
+
+    return IAggregate(query, array);
+    
   }
 }

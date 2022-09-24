@@ -26,6 +26,14 @@ Append method: append an object at the end of the IEnumerable
 ```typescript
 Users.Append(object);
 ```
+Aggregate method: return an array based on a query on the IEnumerable
+```typescript
+Users.Aggregate(" $sex : m || $city : rome && $age : 30").forEach((value: any) => {
+    console.log(value);
+  });
+```
+
+
 
 ## Methods
 - Any
@@ -44,3 +52,4 @@ Users.Append(object);
 - ObjCount
 - GreaterThan
 - LowerThan
+- Aggregation

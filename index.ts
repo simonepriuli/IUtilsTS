@@ -1,20 +1,23 @@
-import { IEnumerable } from './IEnumerableTS/IEnumerable'
+import { IEnumerable } from "./IEnumerableTS/IEnumerable";
 
 interface IUser {
-    username: string,
-    age: number
+  username: string,
+  sex: string,
+  city: string
 }
 
-const usr1: IUser = {username: 'simone', age: 22};
-const usr2: IUser = {username: 'john', age: 30};
+const usr1: IUser = { username: "simone", sex: "m", city: 'rome'};
+const usr2: IUser = { username: "laura", sex: "f", city: 'milan' };
+const usr3: IUser = { username: "john", sex: "m", city: 'milan' };
+const usr4: IUser = { username: "max", sex: "m", city: 'rome' };
 
-let Users = new IEnumerable;
+let Users = new IEnumerable();
 
 Users.Append(usr1);
-Users.Append(1);
-Users.Append('Ciao');
 Users.Append(usr2);
-Users.Append(10);
+Users.Append(usr3);
+Users.Append(usr4);
 
-console.log(Users.ObjCount(usr1)); 
-
+Users.Aggregate(" $sex : m || $city : rome && $username : max").forEach((value: any) => {
+    console.log(value);
+  });
