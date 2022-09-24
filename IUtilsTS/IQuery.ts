@@ -1,6 +1,10 @@
-import { IEnumerable } from "./IEnumerable";
-
-export function IAggregate(query: string, ienumerable: any[]) {
+/**
+   * Returns an array based on the query aggregation results.
+   * @param {string} string - the query
+   * @param {Array} array - the array to execute the query on
+   * @return {Array} Array.
+   */
+export function IQuery(query: string, ienumerable: any[]) {
   let resultArray: any = [];
   let queries = query.split(" ");
   let results: boolean = false;
@@ -298,5 +302,7 @@ export function IAggregate(query: string, ienumerable: any[]) {
   }
   return resultArray;
 }
+
+
 
 // @ > 30 || @ < 50

@@ -1,11 +1,12 @@
-# IEnumerable class for TypeScript
+# IUtils utility class for TypeScript
 
-IEnumerable utility class (inspired by C# LINQ IEnumerable) broght to TypeScript.
+IUtils is a utility class for TypeScript that provides 
 
 ## Usage/Examples
-Copy  the IEnumerableTS folder into your project and import IEnumerable.ts where you want to use it. The other utility classes are exposed by IEnumerable.ts.
+Copy  the IUtilsTS folder into your project and import the Utility class you need.
 ```typescript
-import { IEnumerable } from './IEnumerableTS/IEnumerable'
+import { IEnumerable } from './IUtilsTS/IEnumerable'
+import { IQuery } from './IUtilsTS/IQuery'
 ```
 
 Empty constructor
@@ -28,12 +29,12 @@ Users.Append(object);
 ```
 Aggregate method: return an array based on a query on the IEnumerable
 ```typescript
-Users.Aggregate(" $sex : m || $city : rome && $age >= 30 ").forEach((value: any) => {
+Users.Query(" $sex : m || $city : rome && $age >= 30 ").forEach((value: any) => {
     console.log(value);
   });
 ```
 ```typescript
-Users.Aggregate(" @ > 30 && @ <= 50 ").forEach((value: any) => {
+Users.Query(" @ > 30 && @ <= 50 ").forEach((value: any) => {
     console.log(value);
   });
 ```
@@ -56,4 +57,4 @@ Users.Aggregate(" @ > 30 && @ <= 50 ").forEach((value: any) => {
 - ObjCount
 - GreaterThan
 - LowerThan
-- Aggregation
+- Query

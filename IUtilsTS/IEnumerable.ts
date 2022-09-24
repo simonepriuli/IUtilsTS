@@ -1,4 +1,4 @@
-import { IAggregate } from "./IAggregate";
+import { IQuery } from "./IQuery";
 
 export class IEnumerable {
   private Enumerables = new Map();
@@ -320,14 +320,14 @@ export class IEnumerable {
    * @param {string} string - the query
    * @return {Array} Array.
    */
-  Aggregate(query: string) {
+  Query(query: string) {
     let array: any = [];
 
     this.Enumerables.forEach((value) => {
       array.push(value);
     });
 
-    return IAggregate(query, array);
+    return IQuery(query, array);
     
   }
 }
