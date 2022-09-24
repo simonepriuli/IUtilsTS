@@ -346,7 +346,7 @@ export class IEnumerable {
   }
 
   /**
-   * Check if the passed query produce any result, return true if so.
+   * Check if the passed query produce any result, if so returns true.
    * @param {string} string - the query
    * @return {Boolean} boolean
    */

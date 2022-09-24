@@ -42,7 +42,7 @@ Delete method: delete items from the IEnumerable based on the query resul
 ```typescript
 Users.Delete(' $age > 20 ');
 ```
-Has method: check if the query produce any result, return true if so
+Has method: check if the query produce any result, if so returns true
 ```typescript
 Users.Has(' $age > 20 ');
 ```
