@@ -3,9 +3,9 @@
 IEnumerable utility class (inspired by C# LINQ IEnumerable) broght to TypeScript.
 
 ## Usage/Examples
-Copy IEnumerable.ts from the IEnumerableTS folder into your project and import it where you want to use it.
+Copy  the IEnumerableTS folder into your project and import IEnumerable.ts where you want to use it. The other utility classes are exposed by IEnumerable.ts.
 ```typescript
-import { IEnumerable } from './IEnumerable'
+import { IEnumerable } from './IEnumerableTS/IEnumerable'
 ```
 
 Empty constructor
@@ -28,7 +28,7 @@ Users.Append(object);
 ```
 Aggregate method: return an array based on a query on the IEnumerable
 ```typescript
-Users.Aggregate(" $sex : m || $city : rome && $age : 30").forEach((value: any) => {
+Users.Aggregate(" $sex : m || $city : rome && $age : 30 ").forEach((value: any) => {
     console.log(value);
   });
 ```
