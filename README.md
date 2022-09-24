@@ -66,3 +66,4 @@ Users.Has(' $age > 20 ');
 - GreaterThan
 - LowerThan
 - Query
+- Has
