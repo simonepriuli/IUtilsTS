@@ -21,7 +21,7 @@ export function IQuery(query: string, ienumerable: any[]) {
       let aggregation = token.split("$");
       parameter = aggregation[1];
 
-      if (queries[index + 1] === "=") {
+      if (queries[index + 1] === ":") {
         parameterValue = queries[index + 2];
 
         ienumerable.forEach((value) => {
@@ -39,6 +39,34 @@ export function IQuery(query: string, ienumerable: any[]) {
           if (queries[index - 1] === "&&") {
             if (resultArray.includes(value)) {
               if (!(value[parameter] === parameterValue)) {
+                let i = resultArray.indexOf(value);
+                resultArray.splice(i, 1);
+              }
+            }
+          }
+
+          results = true;
+        });
+      }
+
+      if (queries[index + 1] === "=") {
+        parameterValue = queries[index + 2];
+
+        ienumerable.forEach((value) => {
+          if (
+            queries[index - 1] === "" ||
+            queries[index - 1] === " " ||
+            queries[index - 1] === "||"
+          ) {
+            if (value[parameter] === +parameterValue) {
+              if (!resultArray.includes(value)) {
+                resultArray.push(value);
+              }
+            }
+          }
+          if (queries[index - 1] === "&&") {
+            if (resultArray.includes(value)) {
+              if (!(value[parameter] === +parameterValue)) {
                 let i = resultArray.indexOf(value);
                 resultArray.splice(i, 1);
               }
@@ -327,7 +355,7 @@ export function IQueryKey(query: string, ienumerable: any[]) {
       let aggregation = token.split("$");
       parameter = aggregation[1];
 
-      if (queries[index + 1] === "=") {
+      if (queries[index + 1] === ":") {
         parameterValue = queries[index + 2];
 
         ienumerable.forEach((value) => {
@@ -339,6 +367,7 @@ export function IQueryKey(query: string, ienumerable: any[]) {
             if (value[parameter] === parameterValue) {
               if (!resultArray.includes(value)) {
                 resultArray.push(count);
+                count +=1;
               }
             }
           }
@@ -347,6 +376,37 @@ export function IQueryKey(query: string, ienumerable: any[]) {
               if (!(value[parameter] === parameterValue)) {
                 let i = resultArray.indexOf(value);
                 resultArray.push(count);
+                count +=1;
+              }
+            }
+          }
+
+          results = true;
+        });
+      }
+
+      if (queries[index + 1] === "=") {
+        parameterValue = queries[index + 2];
+
+        ienumerable.forEach((value) => {
+          if (
+            queries[index - 1] === "" ||
+            queries[index - 1] === " " ||
+            queries[index - 1] === "||"
+          ) {
+            if (value[parameter] === +parameterValue) {
+              if (!resultArray.includes(value)) {
+                resultArray.push(count);
+                count +=1;
+              }
+            }
+          }
+          if (queries[index - 1] === "&&") {
+            if (resultArray.includes(value)) {
+              if (!(value[parameter] === +parameterValue)) {
+                let i = resultArray.indexOf(value);
+                resultArray.push(count);
+                count +=1;
               }
             }
           }
@@ -367,6 +427,7 @@ export function IQueryKey(query: string, ienumerable: any[]) {
             if (value[parameter] > +parameterValue) {
               if (!resultArray.includes(value)) {
                 resultArray.push(count);
+                count +=1;
               }
             }
           }
@@ -375,6 +436,7 @@ export function IQueryKey(query: string, ienumerable: any[]) {
               if (!(value[parameter] > +parameterValue)) {
                 let i = resultArray.indexOf(value);
                 resultArray.push(count);
+                count +=1;
               }
             }
           }
@@ -395,6 +457,7 @@ export function IQueryKey(query: string, ienumerable: any[]) {
             if (value[parameter] >= +parameterValue) {
               if (!resultArray.includes(value)) {
                 resultArray.push(count);
+                count +=1;
               }
             }
           }
@@ -403,6 +466,7 @@ export function IQueryKey(query: string, ienumerable: any[]) {
               if (!(value[parameter] >= +parameterValue)) {
                 let i = resultArray.indexOf(value);
                 resultArray.push(count);
+                count +=1;
               }
             }
           }
@@ -423,6 +487,7 @@ export function IQueryKey(query: string, ienumerable: any[]) {
             if (value[parameter] < +parameterValue) {
               if (!resultArray.includes(value)) {
                 resultArray.push(count);
+                count +=1;
               }
             }
           }
@@ -431,6 +496,7 @@ export function IQueryKey(query: string, ienumerable: any[]) {
               if (!(value[parameter] < +parameterValue)) {
                 let i = resultArray.indexOf(value);
                 resultArray.push(count);
+                count +=1;
               }
             }
           }
@@ -452,6 +518,7 @@ export function IQueryKey(query: string, ienumerable: any[]) {
             if (value[parameter] <= +parameterValue) {
               if (!resultArray.includes(value)) {
                 resultArray.push(count);
+                count +=1;
               }
             }
           }
@@ -460,6 +527,7 @@ export function IQueryKey(query: string, ienumerable: any[]) {
               if (!(value[parameter] <= +parameterValue)) {
                 let i = resultArray.indexOf(value);
                 resultArray.push(count);
+                count +=1;
               }
             }
           }
@@ -602,6 +670,9 @@ export function IQueryKey(query: string, ienumerable: any[]) {
         });
       }
     }
+
+    
+
   });
 
   if (results == false) {
@@ -610,6 +681,8 @@ export function IQueryKey(query: string, ienumerable: any[]) {
 
   return resultArray;
 }
+//this function is not working at the time
+
 
 /**
  * Returns true if the query produce any result.
@@ -635,7 +708,7 @@ export function IQueryHas(query: string, ienumerable: any[]) {
       let aggregation = token.split("$");
       parameter = aggregation[1];
 
-      if (queries[index + 1] === "=") {
+      if (queries[index + 1] === ":") {
         parameterValue = queries[index + 2];
 
         ienumerable.forEach((value) => {
@@ -653,6 +726,32 @@ export function IQueryHas(query: string, ienumerable: any[]) {
           if (queries[index - 1] === "&&") {
             if (resultArray.includes(value)) {
               if (!(value[parameter] === parameterValue)) {
+                let i = resultArray.indexOf(value);
+                results = true;
+              }
+            }
+          }
+        });
+      }
+
+      if (queries[index + 1] === "=") {
+        parameterValue = queries[index + 2];
+
+        ienumerable.forEach((value) => {
+          if (
+            queries[index - 1] === "" ||
+            queries[index - 1] === " " ||
+            queries[index - 1] === "||"
+          ) {
+            if (value[parameter] === +parameterValue) {
+              if (!resultArray.includes(value)) {
+                results = true;
+              }
+            }
+          }
+          if (queries[index - 1] === "&&") {
+            if (resultArray.includes(value)) {
+              if (!(value[parameter] === +parameterValue)) {
                 let i = resultArray.indexOf(value);
                 results = true;
               }

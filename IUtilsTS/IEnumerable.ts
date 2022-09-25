@@ -87,7 +87,6 @@ export class IEnumerable {
    * @return {Number} Number.
    */
   Size(): number {
-
     let a: number = this.Enumerables.size;
 
     return a;
@@ -314,7 +313,7 @@ export class IEnumerable {
     return check;
   }
 
-   /**
+  /**
    * Returns an array based on the query aggregation results.
    * @param {string} string - the query
    * @return {Array} Array.
@@ -333,6 +332,8 @@ export class IEnumerable {
    * Delete objects inside the IEnumerable based on the query results.
    * @param {string} string - the query
    */
+
+  /*
   Delete(query: string) {
     let array: any = [];
 
@@ -340,9 +341,12 @@ export class IEnumerable {
       array.push(value);
     });
     IQueryKey(query, array)?.forEach((value: number) => {
+      console.log(value);
       this.Enumerables.delete(value);
     });
   }
+/*
+
 
   /**
    * Check if the passed query produce any result, if so returns true.
@@ -358,5 +362,4 @@ export class IEnumerable {
 
     return IQueryHas(query, array);
   }
-
 }
