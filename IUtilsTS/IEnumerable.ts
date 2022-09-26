@@ -362,4 +362,11 @@ export class IEnumerable {
 
     return IQueryHas(query, array);
   }
+
+  Map(list: any[], method: any) {
+    list.forEach((value: any) => {
+      this.Append(method(value));
+    });
+  }
+  
 }
